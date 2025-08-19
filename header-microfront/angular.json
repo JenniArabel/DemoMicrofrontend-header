@@ -15,7 +15,6 @@
           "options": {
             "outputPath": "dist/header-microfront",
             "index": "src/index.html",
-            "main": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -33,7 +32,7 @@
             "customWebpackConfig": {
               "path": "extra-webpack.config.js",
               "libraryName": "header-microfront",
-              "libraryTarget": "umd"
+              "libraryTarget": "system"
             },
             "deployUrl": "http://localhost:4201/"
           },
@@ -64,6 +63,9 @@
         },
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
+          "options": {
+            "port": 4201
+          },
           "configurations": {
             "production": {
               "buildTarget": "header-microfront:build:production"
@@ -98,5 +100,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
